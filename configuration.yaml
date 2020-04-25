@@ -1,7 +1,6 @@
 homeassistant:
-  name: Thuis
-  latitude: 51.644300
-  longitude: 5.277368
+  latitude: !secret latitude
+  longitude: !secret longitude
   elevation: 7
   unit_system: metric
   time_zone: Europe/Amsterdam
@@ -261,8 +260,8 @@ sensor:
 weather:
   - platform: buienradar  
     name: 'Vught'    
-    latitude: 51.644250
-    longitude: 5.277410
+    latitude: !secret latitude
+    longitude: !secret longitude    
 
 breaking_changes:
 
