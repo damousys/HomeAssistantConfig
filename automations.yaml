@@ -1,0 +1,88 @@
+- id: letsencrypt-renewal
+  alias: Let's Encrypt Renewal
+  trigger:
+  - platform: time
+    at: 00:00:00
+  action:
+  - service: hassio.addon_restart
+    data:
+      addon: core_letsencrypt
+- id: home_assistant_mqtt_checkup
+  alias: Home Assistant MQTT checkup
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/sonoffs/POWER
+      payload: ''
+      
+- id: automatische_backup_om_12_uur
+  alias: Automatische backup om 12 uur
+  trigger:
+  - at: 00:00
+    platform: time
+  action:
+  - service: hassio.snapshot_full
+    data_template:
+      name: Automated Backup {{ now().strftime('%Y-%m-%d %H:%M') }}
+  - service: notify.telegram
+    data_template:
+      message: Creating backup named "Automated Backup {{ now().strftime('%Y-%m-%d%H:%M') }}"            
+
+- id: PC_aanzetten_na_afsluiten
+  alias: PC aanzetten na afsluiten
+  trigger:
+  - event_data:
+      data: /StartUpPC
+    event_type: telegram_callback
+    platform: event
+  action:
+  - data:
+      entity_id: switch.desktop
+    service: switch.toggle
+  - data_template:
+      message: PC Gaat aan
+    service: notify.telegram      
+
+
+- id: melding_iemand_thuis
+  alias: Melding iemand thuis
+  trigger:
+  - entity_id:  person.mark
+    platform: state
+    to: home
+  condition: []
+  action:
+  - data_template:
+      message: 'Device: is thuis ({{trigger.entity_id}})'
+    service: notify.telegram
+
+- id: melding_ad_thuis
+  alias: Melding Ad thuis
+  trigger:
+  - entity_id:  person.ad
+    platform: state
+    to: home
+  condition: []
+  action:
+  - data_template:
+      message: 'Device: is thuis ({{trigger.entity_id}})'
+    service: notify.telegram
+
+- id: shutdown_pc_na_commando
+  alias: Shutdown PC na commando telegram
+  trigger:
+    platform: event
+    event_type: telegram_callback
+    event_data:
+      data: /ShutdownPC
+  action:
+  - data:
+      addon: core_rpc_shutdown
+      input: Desktop
+    service: hassio.addon_stdin
+  - data_template:
+      message: PC Gaat uit
+    service: notify.telegram    

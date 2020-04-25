@@ -1,0 +1,44 @@
+roborock_empty:
+  alias: Roborock leegmaken
+  sequence:
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.rockrobo
+      command: go_to
+      params:
+        spot_id: Leegmaken
+roborock_woonkamer:
+  alias: Stofzuig Woonkamer
+  sequence:
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.rockrobo
+      command: zoned_cleanup
+      params:
+        zone_ids:
+        - Woonkamer
+roborock_pc:
+  alias: Stofzuig PC
+  sequence:
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.rockrobo
+      command: zoned_cleanup
+      params:
+        zone_ids:
+        - PC
+roborock_medium:
+    alias: "Kim medium"
+    sequence:
+      - service: vacuum.set_fan_speed
+        data:
+          entity_id: 'vacuum.rockrobo'
+          fan_speed: medium
+          
+roborock_mop:
+    alias: "Kim Dweilen"
+    sequence:
+      - service: vacuum.set_fan_speed
+        data:
+          entity_id: 'vacuum.rockrobo'
+          fan_speed: mop

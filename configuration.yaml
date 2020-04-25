@@ -1,0 +1,283 @@
+homeassistant:
+  name: Thuis
+  latitude: 51.644300
+  longitude: 5.277368
+  elevation: 7
+  unit_system: metric
+  time_zone: Europe/Amsterdam
+  customize: !include customize.yaml
+  auth_providers:
+    - type: homeassistant
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.2.0/24
+        - fd00::/8  
+        - 2001:980:e2fa:1::/64
+        - 213.125.8.122/32
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+frontend:
+  themes: !include_dir_merge_named themes/
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+http:
+  # api_password: !secret http_password
+  base_url: ha.damousys.nl:8123
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+  ip_ban_enabled: true
+  login_attempts_threshold: 5  
+
+switch:
+  - platform: mqtt
+    name: "Stroompunt huiskamer achter" 
+    command_topic: "cmnd/sonoff-01/POWER" 
+    state_topic: "stat/sonoff-01/POWER" 
+    qos: 1
+    payload_on: "ON" 
+    payload_off: "OFF" 
+
+
+  - platform: mqtt
+    name: "Beeldschermen" 
+    command_topic: "cmnd/sonoff-02/POWER" 
+    state_topic: "stat/sonoff-02/POWER" 
+    qos: 1
+    payload_on: "ON" 
+    payload_off: "OFF" 
+
+    
+  - platform: mqtt
+    name: "Licht Keuken" 
+    command_topic: "cmnd/sonoff-03/POWER" 
+    state_topic: "stat/sonoff-03/POWER" 
+    payload_on: "ON" 
+    payload_off: "OFF" 
+
+
+  - platform: mqtt
+    name: "Nachtlampje" 
+    command_topic: "cmnd/sonoff-04/POWER" 
+    state_topic: "stat/sonoff-04/POWER" 
+    payload_on: "ON" 
+    payload_off: "OFF" 
+
+
+  - platform: mqtt    
+    name: "Lamp en Spiegel" 
+    command_topic: "cmnd/sonoff-05/POWER" 
+    state_topic: "stat/sonoff-05/POWER" 
+    payload_on: "ON" 
+    payload_off: "OFF" 
+
+
+  - platform: mqtt    
+    name: "Lamp badkamer" 
+    command_topic: "cmnd/sonoff-06/POWER" 
+    state_topic: "stat/sonoff-06/POWER" 
+    payload_on: "ON" 
+    payload_off: "OFF" 
+
+
+  - platform: mqtt    
+    name: "Lamp Slaapkamer" 
+    command_topic: "cmnd/sonoff-07/POWER" 
+    state_topic: "stat/sonoff-07/POWER" 
+    payload_on: "ON" 
+    payload_off: "OFF"   
+
+
+  - platform: mqtt    
+    name: "Logeerkamer" 
+    command_topic: "cmnd/sonoff-08/POWER" 
+    state_topic: "stat/sonoff-08/POWER" 
+    payload_on: "ON" 
+    payload_off: "OFF"   
+
+
+  - platform: mqtt    
+    name: "WC" 
+    command_topic: "cmnd/sonoff-09/POWER" 
+    state_topic: "stat/sonoff-09/POWER" 
+    payload_on: "ON" 
+    payload_off: "OFF"   
+
+
+  - platform: mqtt    
+    name: "Keuken Hanglamp" 
+    command_topic: "cmnd/sonoff-10/POWER" 
+    state_topic: "stat/sonoff-10/POWER" 
+    payload_on: "ON" 
+    payload_off: "OFF"   
+
+
+  - platform: mqtt    
+    name: "Schuur" 
+    command_topic: "cmnd/sonoff-11/POWER" 
+    state_topic: "stat/sonoff-11/POWER" 
+    payload_on: "ON" 
+    payload_off: "OFF"   
+
+
+  - platform: mqtt    
+    name: "Droger" 
+    command_topic: "cmnd/sonoff-12/POWER" 
+    state_topic: "stat/sonoff-12/POWER" 
+    payload_on: "ON" 
+    payload_off: "OFF"   
+
+
+  - platform: mqtt    
+    name: "Huiskamer" 
+    command_topic: "cmnd/sonoff-13/POWER" 
+    state_topic: "stat/sonoff-13/POWER" 
+    payload_on: "ON" 
+    payload_off: "OFF"   
+
+
+  - platform: mqtt    
+    name: "Gang Beneden" 
+    command_topic: "cmnd/sonoff-14/POWER" 
+    state_topic: "stat/sonoff-14/POWER" 
+    payload_on: "ON" 
+    payload_off: "OFF"   
+
+
+  - platform: mqtt    
+    name: "Gang Boven" 
+    command_topic: "cmnd/sonoff-15/POWER" 
+    state_topic: "stat/sonoff-15/POWER" 
+    payload_on: "ON" 
+    payload_off: "OFF"   
+
+  - platform: mqtt    
+    name: "Kelder" 
+    command_topic: "cmnd/sonoff-16/POWER" 
+    state_topic: "stat/sonoff-16/POWER" 
+    payload_on: "ON" 
+    payload_off: "OFF" 
+
+  - platform: mqtt    
+    name: "Serverruimte" 
+    command_topic: "cmnd/sonoff-17/POWER" 
+    state_topic: "stat/sonoff-17/POWER" 
+    payload_on: "ON" 
+    payload_off: "OFF" 
+
+  - platform: mqtt    
+    name: "Gang" 
+    command_topic: "cmnd/sonoff-18/POWER1" 
+    state_topic: "stat/sonoff-18/POWER1" 
+    payload_on: "ON" 
+    payload_off: "OFF"     
+    
+  - platform: mqtt    
+    name: "Buiten" 
+    command_topic: "cmnd/sonoff-18/POWER2" 
+    state_topic: "stat/sonoff-18/POWER2" 
+    payload_on: "ON" 
+    payload_off: "OFF"  
+
+  - platform: mqtt    
+    name: "Tablet" 
+    command_topic: "cmnd/sonoff-19/POWER" 
+    state_topic: "stat/sonoff-19/POWER" 
+    payload_on: "ON" 
+    payload_off: "OFF"      
+    
+  - platform: wake_on_lan    
+    mac: "F8-B1-56-AF-A0-4E"
+    name: "Desktop"
+    host: 192.168.2.102
+
+
+logger:
+  default: warning
+
+
+input_boolean:
+  thuis:
+    name: Thuis
+    initial: off
+    icon: mdi:home        
+  slapen:
+    name: Slapen
+    initial: off
+    icon: mdi:chat-sleep   
+
+recorder:
+  db_url: !secret mssql_db
+  purge_interval: 0
+
+telegram_bot:
+  - platform: polling
+    parse_mode: html
+    api_key: !secret api_key_telegram_bot
+    allowed_chat_ids:
+      - 684234522
+    
+notify:
+  platform: telegram
+  api_key: !secret api_key_telegram_notify
+  name: telegram
+  chat_id: 684234522
+
+
+
+sensor:
+  - platform: synologydsm
+    host: S08.damousys.nl
+    username: administrator
+    password: !secret http_password
+    monitored_conditions:
+      - cpu_total_load
+      - memory_real_usage
+      - network_up
+      - network_down
+
+  - platform: mqtt
+    name: "Droger Power"
+    state_topic: "tele/sonoff-12/SENSOR"
+    value_template: "{{value_json['ENERGY'].Power }}"
+    qos: 1
+    unit_of_measurement : "W"    
+
+
+  - platform: afvalwijzer # Required
+    provider: afvalstoffendienstkalender # Optional - mijnafvalwijzer (default) or afvalstoffendienstkalender
+    zipcode: 5262ZM # Required
+    housenumber: 23 # Required
+
+
+weather:
+  - platform: buienradar  
+    name: 'Vught'    
+    latitude: 51.644250
+    longitude: 5.277410
+
+breaking_changes:
+
+camera:
+  - platform: synology
+    url: https://S08.damousys.nl:5001
+    username: administrator
+    password: !secret http_password
+    
+speedtestdotnet:
+  server_id: 26998
+  scan_interval:
+    minutes: 30
+  monitored_conditions:
+    - ping
+    - download
+    - upload    
+

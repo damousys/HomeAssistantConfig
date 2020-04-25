@@ -1,0 +1,67 @@
+  Huiskamer:
+    name: Huiskamer
+    icon: mdi:power-plug
+    entities:
+      - switch.stroompunt_huiskamer_achter  
+      - switch.beeldschermen
+      - switch.huiskamer      
+      - switch.kelder      
+
+  Slaapkamer:
+    name: Slaapkamer
+    entities:
+      - switch.lamp_slaapkamer
+      - switch.Nachtlampje
+      
+  Keuken:
+    name: Keuken    
+    entities:    
+      - switch.licht_keuken
+      - switch.keuken_hanglamp
+
+  booleans:
+    name: Booleans
+    entities:    
+      -  input_boolean.thuis
+      -  input_boolean.zon
+      
+      
+  Badkamer:
+    name: Badkamer    
+    entities:    
+      - switch.lamp_en_spiegel
+      - switch.lamp_badkamer
+      - switch.droger
+  Schuur:
+    name: Schuur
+    entities:    
+      - switch.schuur
+  Serverruimte:
+    name: Server ruimte
+    entities:    
+      - switch.serverruimte      
+  Gang:
+    name: Gang
+    entities:    
+      - switch.gang_boven
+      - switch.gang_beneden
+      - switch.gang
+      - switch.buiten
+
+  Logeerkamer:
+    name: Logeerkamer
+    entities:    
+      - switch.logeerkamer
+  WC:
+    name: WC
+    entities:    
+      - switch.wc
+  Tablet:
+    name: Tablet
+    entities:    
+      - switch.tablet
+  all_devices:
+    name: all_devices
+    entities:    
+      -  person.mark
+      -  person.ad

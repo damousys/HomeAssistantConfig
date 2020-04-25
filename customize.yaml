@@ -1,0 +1,42 @@
+switch.droger:
+  icon: mdi:tumble-dryer
+switch.stroompunt_huiskamer_achter:
+  icon: mdi:power-plug  
+switch.beeldschermen:
+  icon: mdi:monitor
+switch.licht_keuken:
+  icon: mdi:lightbulb
+switch.nachtlampje:
+  icon: mdi:lightbulb
+switch.lamp_en_spiegel:
+  icon: mdi:lightbulb
+switch.lamp_badkamer:
+  icon: mdi:lightbulb  
+switch.lamp_slaapkamer:
+  icon: mdi:lightbulb
+switch.logeerkamer:
+  icon: mdi:lightbulb
+switch.wc:
+  icon: mdi:lightbulb
+switch.keuken_hanglamp:
+  icon: mdi:lightbulb
+switch.schuur:
+  icon: mdi:lightbulb
+switch.huiskamer:
+  icon: mdi:lightbulb
+switch.gang_beneden:
+  icon: mdi:lightbulb
+switch.gang_boven:
+  icon: mdi:lightbulb
+switch.kelder:
+  icon: mdi:lightbulb
+switch.gang:
+  icon: mdi:lightbulb  
+switch.buiten:
+  icon: mdi:lightbulb
+switch.serverruimte:
+  icon: mdi:lightbulb  
+switch.tablet:
+  icon: mdi:lightbulb   
+switch.desktop:
+  hidden: true
