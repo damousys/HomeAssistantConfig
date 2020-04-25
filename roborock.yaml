@@ -1,0 +1,107 @@
+homeassistant:
+
+input_boolean:
+  runned_today:
+    name: Albert has been active
+    initial: 'off'
+  kitchen_clean:
+    name: Kitchen clean
+    initial: 'off'
+  bedroom_clean:
+    name: Bedroom clean
+    initial: 'off'
+  hall_clean:
+    name: Hall clean
+    initial: 'off'
+  living_clean:
+    name: Livingroom clean
+    initial: 'off'
+  house_clean:
+    name: House clean
+    initial: 'off'
+  empty_bin:
+    name: Empty Albert
+    initial: 'off'
+  albert_docked:
+    name: Albert Docked
+    initial: 'on'
+  house_mopping:
+    name: Albert is mopping
+    initial: 'off'
+    
+script:
+  roborock_house:
+     alias: Stofzuig Huis
+     sequence:
+       - service: vacuum.send_command
+         data:
+           entity_id: 'vacuum.rockrobo'
+           command: 'zoned_cleanup'
+           params:
+             'zone_ids': ["Slaapkamer", "Hal", "Keuken", "Woonkamer"]
+
+  roborock_keuken:
+     alias: Stofzuig Keuken
+     sequence:
+       - service: vacuum.send_command
+         data:
+           entity_id: 'vacuum.rockrobo'
+           command: 'zoned_cleanup'
+           params:
+             'zone_ids': ['Keuken']
+
+  roborock_hal:
+     alias: Stofzuig Hal
+     sequence:
+       - service: vacuum.send_command
+         data:
+           entity_id: 'vacuum.rockrobo'
+           command: 'zoned_cleanup'
+           params:
+             'zone_ids': ['Hal']
+
+  roborock_slaapkamer:
+     alias: Stofzuig Slaapkamer
+     sequence:
+       - service: vacuum.send_command
+         data:
+           entity_id: 'vacuum.rockrobo'
+           command: 'zoned_cleanup'
+           params:
+             'zone_ids': ['Slaapkamer']
+             
+  roborock_woonkamer:
+     alias: Stofzuig Woonkamer
+     sequence:  
+       - service: vacuum.send_command
+         data:
+           entity_id: 'vacuum.rockrobo'
+           command: 'zoned_cleanup'
+           params:
+             'zone_ids': ['Woonkamer']
+             
+  roborock_medium:
+     alias: "Albert medium"
+     sequence:
+       - service: vacuum.set_fan_speed
+         data:
+           entity_id: 'vacuum.rockrobo'
+           fan_speed: medium
+           
+  roborock_mop:
+     alias: "Albert Dweilen"
+     sequence:
+       - service: vacuum.set_fan_speed
+         data:
+           entity_id: 'vacuum.rockrobo'
+           fan_speed: mop
+           
+  roborock_empty:
+     alias: "Albert leegmaken"
+     sequence:
+       - service: vacuum.send_command
+         data:
+           entity_id: 'vacuum.rockrobo'
+           command: 'go_to'
+           params:
+             'spot_id': 'Albertleeg'
