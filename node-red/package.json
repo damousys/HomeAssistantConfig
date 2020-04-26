@@ -1,0 +1,11 @@
+{
+    "name": "node-red-project",
+    "description": "A Node-RED Project",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "node-red-contrib-valetudo": "~2.1.0",
+        "node-red-dashboard": "~2.21.0",
+        "node-red-node-suncalc": "~0.2.0"
+    }
+}
