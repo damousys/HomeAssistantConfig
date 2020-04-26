@@ -1,12 +1,13 @@
-- id: letsencrypt-renewal
-  alias: Let's Encrypt Renewal
-  trigger:
-  - platform: time
-    at: 00:00:00
-  action:
-  - service: hassio.addon_restart
-    data:
-      addon: core_letsencrypt
+# - id: letsencrypt-renewal
+#   alias: Let's Encrypt Renewal
+#   trigger:
+#   - platform: time
+#     at: 00:00:00
+#   action:
+#   - service: hassio.addon_restart
+#     data:
+#       addon: core_letsencrypt
+
 - id: home_assistant_mqtt_checkup
   alias: Home Assistant MQTT checkup
   trigger:
