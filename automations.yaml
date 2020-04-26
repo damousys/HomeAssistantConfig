@@ -8,27 +8,3 @@
     data:
       topic: cmnd/sonoffs/POWER
       payload: ''
-      
-- id: melding_iemand_thuis
-  alias: Melding iemand thuis
-  trigger:
-  - entity_id:  person.mark
-    platform: state
-    to: home
-  condition: []
-  action:
-  - data_template:
-      message: 'Device: is thuis ({{trigger.entity_id}})'
-    service: notify.telegram
-
-- id: melding_ad_thuis
-  alias: Melding Ad thuis
-  trigger:
-  - entity_id:  person.ad
-    platform: state
-    to: home
-  condition: []
-  action:
-  - data_template:
-      message: 'Device: is thuis ({{trigger.entity_id}})'
-    service: notify.telegram
