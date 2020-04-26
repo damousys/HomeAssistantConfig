@@ -1,13 +1,3 @@
-# - id: letsencrypt-renewal
-#   alias: Let's Encrypt Renewal
-#   trigger:
-#   - platform: time
-#     at: 00:00:00
-#   action:
-#   - service: hassio.addon_restart
-#     data:
-#       addon: core_letsencrypt
-
 - id: home_assistant_mqtt_checkup
   alias: Home Assistant MQTT checkup
   trigger:
@@ -19,20 +9,20 @@
       topic: cmnd/sonoffs/POWER
       payload: ''
       
-- id: PC_aanzetten_na_afsluiten
-  alias: PC aanzetten na afsluiten
-  trigger:
-  - event_data:
-      data: /StartUpPC
-    event_type: telegram_callback
-    platform: event
-  action:
-  - data:
-      entity_id: switch.desktop
-    service: switch.toggle
-  - data_template:
-      message: PC Gaat aan
-    service: notify.telegram      
+# - id: PC_aanzetten_na_afsluiten
+#   alias: PC aanzetten na afsluiten
+#   trigger:
+#   - event_data:
+#       data: /StartUpPC
+#     event_type: telegram_callback
+#     platform: event
+#   action:
+#   - data:
+#       entity_id: switch.desktop
+#     service: switch.toggle
+#   - data_template:
+#       message: PC Gaat aan
+#     service: notify.telegram      
 
 
 - id: melding_iemand_thuis
@@ -59,18 +49,18 @@
       message: 'Device: is thuis ({{trigger.entity_id}})'
     service: notify.telegram
 
-- id: shutdown_pc_na_commando
-  alias: Shutdown PC na commando telegram
-  trigger:
-    platform: event
-    event_type: telegram_callback
-    event_data:
-      data: /ShutdownPC
-  action:
-  - data:
-      addon: core_rpc_shutdown
-      input: Desktop
-    service: hassio.addon_stdin
-  - data_template:
-      message: PC Gaat uit
-    service: notify.telegram    
+# - id: shutdown_pc_na_commando
+#   alias: Shutdown PC na commando telegram
+#   trigger:
+#     platform: event
+#     event_type: telegram_callback
+#     event_data:
+#       data: /ShutdownPC
+#   action:
+#   - data:
+#       addon: core_rpc_shutdown
+#       input: Desktop
+#     service: hassio.addon_stdin
+#   - data_template:
+#       message: PC Gaat uit
+#     service: notify.telegram    
