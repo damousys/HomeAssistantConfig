@@ -18,19 +18,6 @@
       topic: cmnd/sonoffs/POWER
       payload: ''
       
-- id: automatische_backup_om_12_uur
-  alias: Automatische backup om 12 uur
-  trigger:
-  - at: 00:00
-    platform: time
-  action:
-  - service: hassio.snapshot_full
-    data_template:
-      name: Automated Backup {{ now().strftime('%Y-%m-%d %H:%M') }}
-  - service: notify.telegram
-    data_template:
-      message: Creating backup named "Automated Backup {{ now().strftime('%Y-%m-%d%H:%M') }}"            
-
 - id: PC_aanzetten_na_afsluiten
   alias: PC aanzetten na afsluiten
   trigger:
