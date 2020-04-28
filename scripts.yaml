@@ -42,3 +42,13 @@ roborock_mop:
         data:
           entity_id: 'vacuum.rockrobo'
           fan_speed: mop
+
+roborock_map:
+  alias: Roborock map
+  sequence:
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.rockrobo
+      command: load_map
+      params:
+        name: "eerste verdieping"
