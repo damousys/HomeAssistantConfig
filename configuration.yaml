@@ -219,7 +219,7 @@ input_boolean:
 
 recorder:
   db_url: !secret mssql_db
-  auto_purge: true
+  auto_purge: false
 
 telegram_bot:
   - platform: polling
@@ -237,8 +237,6 @@ notify:
 
 
 sensor:
-
-
   - platform: mqtt
     name: "Droger Power"
     state_topic: "tele/sonoff-12/SENSOR"
@@ -276,3 +274,7 @@ speedtestdotnet:
     - download
     - upload    
 
+synology_dsm:
+  - host: s08.damousys.nl
+    username: administrator
+    password: !secret http_password
