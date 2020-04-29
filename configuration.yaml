@@ -219,7 +219,7 @@ input_boolean:
 
 recorder:
   db_url: !secret mssql_db
-  auto_purge: false
+  auto_purge: true
 
 telegram_bot:
   - platform: polling
