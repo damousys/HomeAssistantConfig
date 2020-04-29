@@ -219,7 +219,6 @@ input_boolean:
 
 recorder:
   db_url: !secret mssql_db
-  purge_interval: 0
   auto_purge: false
 
 telegram_bot:
@@ -238,15 +237,15 @@ notify:
 
 
 sensor:
-  - platform: synologydsm
-    host: S08.damousys.nl
-    username: administrator
-    password: !secret http_password
-    monitored_conditions:
-      - cpu_total_load
-      - memory_real_usage
-      - network_up
-      - network_down
+#   - platform: synologydsm
+#     host: S08.damousys.nl
+#     username: administrator
+#     password: !secret http_password
+#     monitored_conditions:
+#       - cpu_total_load
+#       - memory_real_usage
+#       - network_up
+#       - network_down
 
   - platform: mqtt
     name: "Droger Power"
