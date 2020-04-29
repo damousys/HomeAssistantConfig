@@ -212,10 +212,15 @@ input_boolean:
     name: Slapen
     initial: off
     icon: mdi:chat-sleep   
+  afvalbuiten:
+    name: AfvalBuiten
+    initial: off
+    icon: mdi:chat-sleep   
 
 recorder:
   db_url: !secret mssql_db
   purge_interval: 0
+  auto_purge: false
 
 telegram_bot:
   - platform: polling
