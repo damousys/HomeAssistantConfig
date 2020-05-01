@@ -274,7 +274,3 @@ speedtestdotnet:
     - download
     - upload    
 
-synology_dsm:
-  - host: s08.damousys.nl
-    username: administrator
-    password: !secret http_password
