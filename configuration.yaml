@@ -215,7 +215,13 @@ input_boolean:
   afvalbuiten:
     name: AfvalBuiten
     initial: off
-    icon: mdi:chat-sleep   
+  stofzuigen:
+    name: stofzuigen
+    initial: off
+  stofzuigencleanup:
+    name: stofzuigencleanup
+    initial: off    
+
 
 recorder:
   db_url: !secret mssql_db
