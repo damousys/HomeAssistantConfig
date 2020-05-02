@@ -51,4 +51,4 @@ roborock_map:
       entity_id: vacuum.rockrobo
       command: load_map
       params:
-        name: "eerste verdieping"
+        name: "beneden"
