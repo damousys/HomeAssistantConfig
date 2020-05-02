@@ -221,7 +221,9 @@ input_boolean:
   stofzuigencleanup:
     name: stofzuigencleanup
     initial: off    
-
+  dweilen:
+    name: dweilen
+    initial: off   
 
 recorder:
   db_url: !secret mssql_db
