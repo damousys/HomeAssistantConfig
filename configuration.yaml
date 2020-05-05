@@ -257,17 +257,6 @@ sensor:
     provider: afvalstoffendienstkalender # Optional - mijnafvalwijzer (default) or afvalstoffendienstkalender
     zipcode: !secret zipcode # Required
     housenumber: 23 # Required
-  - platform: glances
-    host: hvhost01
-    port: 61208
-    name: hvhost01
-    version: 3
-
-  - platform: glances
-    host: hv01
-    port: 61208
-    name: hvhost01
-    version: 3  
 
 weather:
   - platform: buienradar  
