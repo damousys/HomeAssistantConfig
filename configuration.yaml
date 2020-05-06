@@ -282,6 +282,14 @@ sensor:
         - pollen_tree
         - pollen_weed
         - pollen_grass
+        - pm25
+        - pm10
+        - o3
+        - no2
+        - co
+        - so2
+        - epa_aqi
+        - epa_health_concern
       forecast:
         - weather_condition
         - temperature
@@ -310,6 +318,11 @@ camera:
     username: administrator
     password: !secret http_password
     
+  - platform: generic
+    name: Vught
+    still_image_url: https://www.yr.no/place/Netherlands/North_Brabant/Vught/meteogram.svg
+    content_type: 'image/svg+xml'    
+
 speedtestdotnet:
   server_id: 26998
   scan_interval:
