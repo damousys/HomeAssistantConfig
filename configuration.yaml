@@ -258,6 +258,41 @@ sensor:
     zipcode: !secret zipcode # Required
     housenumber: 23 # Required
 
+  - platform: climacell
+    api_key: !secret climacell_api_key
+    name: cc
+    latitude: !secret latitude
+    longitude: !secret longitude
+    monitored_conditions:
+      realtime:
+        - weather_condition
+        - temperature
+        - humidity
+        - visibility
+        - cloud_cover
+        - precipitation
+        - precipitation_type
+        - pressure
+        - wind_speed
+        - wind_direction
+        - wind_gust
+        - moon_phase
+        - sunset
+        - sunrise
+      forecast:
+        - weather_condition
+        - temperature
+        - precipitation
+        - precipitation_probability
+    scan_interval:
+      # At least one of these must be specified:
+      days: 0
+      hours: 1
+      minutes: 0
+      seconds: 0
+      milliseconds: 0
+
+
 weather:
   - platform: buienradar  
     name: 'Vught'    
