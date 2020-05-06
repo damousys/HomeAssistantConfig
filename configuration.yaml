@@ -279,6 +279,9 @@ sensor:
         - moon_phase
         - sunset
         - sunrise
+        - pollen_tree
+        - pollen_weed
+        - pollen_grass
       forecast:
         - weather_condition
         - temperature
