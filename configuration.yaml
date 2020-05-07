@@ -214,7 +214,7 @@ input_boolean:
     icon: mdi:chat-sleep   
   afvalbuiten:
     name: AfvalBuiten
-    initial: off
+    initial: on
   stofzuigen:
     name: stofzuigen
     initial: off
@@ -265,7 +265,6 @@ sensor:
     longitude: !secret longitude
     monitored_conditions:
       realtime:
-      forecast_observations: 5  
         - weather_condition
         - feels_like
         - temperature
@@ -297,6 +296,7 @@ sensor:
         - temperature
         - precipitation
         - precipitation_probability
+      forecast_observations: 7
     scan_interval:
       # At least one of these must be specified:
       days: 0
