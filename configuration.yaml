@@ -265,7 +265,9 @@ sensor:
     longitude: !secret longitude
     monitored_conditions:
       realtime:
+      forecast_observations: 5  
         - weather_condition
+        - feels_like
         - temperature
         - humidity
         - visibility
