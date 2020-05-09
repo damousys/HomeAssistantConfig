@@ -201,6 +201,8 @@ switch:
 
 logger:
   default: warning
+  logs:
+    homeassistant.components.glances: debug
 
 
 input_boolean:
