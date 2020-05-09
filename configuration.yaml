@@ -306,12 +306,6 @@ sensor:
       milliseconds: 0
 
 
-weather:
-  - platform: buienradar  
-    name: 'Vught'    
-    latitude: !secret latitude
-    longitude: !secret longitude    
-
 breaking_changes:
 
 camera:
