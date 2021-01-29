@@ -6,7 +6,7 @@
     "dependencies": {
         "node-red-contrib-buienradar": "~0.4.1",
         "node-red-contrib-valetudo": "~2.1.0",
-        "node-red-dashboard": "~2.21.0",
+        "node-red-dashboard": "~2.26.2",
         "node-red-node-suncalc": "~0.2.0"
     }
 }
